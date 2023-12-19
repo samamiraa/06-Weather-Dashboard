@@ -40,6 +40,10 @@ Snow Icon
 <a href="https://www.flaticon.com/free-icons/snowing" title="snowing icons">Snowing icons created by Freepik - Flaticon</a>
 Sun Icon
 <a href="https://www.flaticon.com/free-icons/sunny" title="sunny icons">Sunny icons created by fjstudio - Flaticon</a>
+Wind Icon
+<a href="https://www.flaticon.com/free-icons/windy" title="windy icons">Windy icons created by Freepik - Flaticon</a>
+Thunder Icon
+<a href="https://www.flaticon.com/free-icons/weather" title="weather icons">Weather icons created by Freepik - Flaticon</a>
 
 ## License
 
