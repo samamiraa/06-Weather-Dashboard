@@ -12,6 +12,13 @@ img {
     height: 250px;
 }
 
+footer {
+    background-color: #18191a;
+    text-align: center;
+    color: #137903;
+    padding: 20px;
+}
+
 .text-color {
     color: #137903;
 }
