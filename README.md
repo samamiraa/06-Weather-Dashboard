@@ -38,6 +38,8 @@ Rain Icon
 <a href="https://www.flaticon.com/free-icons/rain" title="rain icons">Rain icons created by tulpahn - Flaticon</a>
 Snow Icon
 <a href="https://www.flaticon.com/free-icons/snowing" title="snowing icons">Snowing icons created by Freepik - Flaticon</a>
+Sun Icon
+<a href="https://www.flaticon.com/free-icons/sunny" title="sunny icons">Sunny icons created by fjstudio - Flaticon</a>
 
 ## License
 
