@@ -34,11 +34,10 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+Rain Icon
+<a href="https://www.flaticon.com/free-icons/rain" title="rain icons">Rain icons created by tulpahn - Flaticon</a>
+Snow Icon
+<a href="https://www.flaticon.com/free-icons/snowing" title="snowing icons">Snowing icons created by Freepik - Flaticon</a>
 
 ## License
 

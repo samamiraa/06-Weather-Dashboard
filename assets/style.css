@@ -2,6 +2,16 @@ body {
     background-color: #0d5103;
 }
 
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+img {
+    height: 250px;
+}
+
 .text-color {
     color: #137903;
 }
+
