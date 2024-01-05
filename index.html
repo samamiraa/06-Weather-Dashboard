@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand text-color" href="#">Weather</a>
+          <a class="navbar-brand text-color">Weather</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -37,8 +37,8 @@
             </li>
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="City" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <input class="form-control me-2" id="location-input" type="search" placeholder="City" aria-label="Search">
+              <button class="btn btn-outline-success" id="location-search" type="submit">Search</button>
             </form>
           </div>
         </div>
@@ -108,7 +108,7 @@
               <img src="./images/heavy-rain.png" class="card-img-top p-4" alt="Graphic of thunder">
               <div class="card-body">
                 <h5 class="card-title">Thunder?</h5>
-                <p class="card-text">Will you need an umbrella, boots <b>AND</b> a jacket?</p>
+                <p class="card-text">Will you need to bundle?</p>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-dark text-success">Temperature?</li>
                     <li class="list-group-item bg-dark text-success">Humidity?</li>
@@ -119,7 +119,7 @@
           </div>
       </div>
 
-      <footer>API 👉🏽 <a href="www.visualcrossing.com/">Visual Crossing</a></footer>
+      <footer>API 👉🏽 <a class="text-color" href="www.visualcrossing.com/">Visual Crossing</a></footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
