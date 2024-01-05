@@ -1,6 +1,5 @@
 let locationSearch = $("#search-btn");
 let locationValue = $("#location-input");
-let locationSearchValue = locationValue.val();
 let apiKey = api_Key;
 
 locationSearch.on("click", function() {
@@ -10,7 +9,15 @@ locationSearch.on("click", function() {
 });
 
 function weatherAPIFetch() {
-    const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + locationSearchValue + "/?key=" + apiKey;
+    const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + locationValue.val() + "/?key=" + apiKey;
+
+    fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+        });
 };
 
 
