@@ -1,9 +1,14 @@
-const location = document.getElementById("location-input");
-const locationInput = location.value;
-const locationSearch = document.getElementById("location-search");
+let locationSearch = $("search-btn");
+let locationValue = $("location-input");
+let apiKey = apiKey;
 
-function searchLocation() {
-    
-}
+locationSearch.on("click", function() {
+    console.log();
+    weatherAPIFetch();
+});
+
+function weatherAPIFetch() {
+
+};
 
 const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + location + "/?key=" + apiKey;
