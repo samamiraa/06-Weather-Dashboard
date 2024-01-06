@@ -2,6 +2,7 @@ let locationSearch = $("#search-btn");
 let locationValue = $("#location-input");
 let apiKey = api_Key;
 let weatherData;
+let headingContainer = $("#heading-container");
 
 locationSearch.on("click", function() {
     event.preventDefault();
@@ -62,12 +63,15 @@ function fetchWeather(requestUrl) {
         })
         .then(function (data) {
             console.log(data);
+
+            let weatherIcon = $(".weather-icon");
+            let dates = $(".date");
+
+            resolvedAddress = data.resolvedAddress;
+            console.log(resolvedAddress);
+
+            $("#heading-container").text(resolvedAddress);
         });
-
-        let weatherIcon = $(".weather-icon");
-        let dates = $(".date");
-
-        console.log()
 };
 
 addPreviousCity();
