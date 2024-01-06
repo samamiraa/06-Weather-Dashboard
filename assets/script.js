@@ -71,6 +71,12 @@ function fetchWeather(requestUrl) {
             console.log(resolvedAddress);
 
             $("#heading-container").text(resolvedAddress);
+
+            for (i = 0; i < data.days.length; i++) {
+                $(dates).eq(i).text(data.days[i].datetime);
+                console.log("hello");
+            };
+            
         });
 };
 

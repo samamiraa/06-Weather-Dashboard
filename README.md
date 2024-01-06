@@ -34,6 +34,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
+https://www.w3schools.com/jquery/sel_eq.asp#:~:text=The%20%3Aeq()%20selector%20selects,like%20in%20the%20example%20above).
+
 Rain Icon
 <a href="https://www.flaticon.com/free-icons/rain" title="rain icons">Rain icons created by tulpahn - Flaticon</a>
 Snow Icon
