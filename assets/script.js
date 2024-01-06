@@ -69,6 +69,7 @@ function fetchWeather(requestUrl) {
             let description = $(".description");
             let temperature = $(".temperature");
             let humidity = $(".humidity");
+            let windSpeed = $(".wind-speed");
 
             resolvedAddress = data.resolvedAddress;
             console.log(resolvedAddress);
@@ -80,6 +81,7 @@ function fetchWeather(requestUrl) {
                 $(description).eq(i).text(data.days[i].description);
                 $(temperature).eq(i).text("Temp: " + data.days[i].temp + " celsius");
                 $(humidity).eq(i).text("Humidity: " + data.days[i].humidity);
+                $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed);
 
                 console.log("hello");
             };
