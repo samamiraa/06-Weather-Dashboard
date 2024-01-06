@@ -66,6 +66,7 @@ function fetchWeather(requestUrl) {
 
             let weatherIcon = $(".weather-icon");
             let dates = $(".date");
+            let description = $(".description");
 
             resolvedAddress = data.resolvedAddress;
             console.log(resolvedAddress);
@@ -74,6 +75,7 @@ function fetchWeather(requestUrl) {
 
             for (i = 0; i < data.days.length; i++) {
                 $(dates).eq(i).text(data.days[i].datetime);
+                $(description).eq(i).text(data.days[i].description);
                 console.log("hello");
             };
             
