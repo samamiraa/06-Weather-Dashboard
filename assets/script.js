@@ -1,73 +1,108 @@
+// variable to access search button
 let locationSearch = $("#search-btn");
+// variable to access city input
 let locationValue = $("#location-input");
+// API key from visual crossing
 let apiKey = "2YBPH4UM4FHESK8XAKAZAQB2T";
+// undefined weather data variable
 let weatherData;
+// variable to access heading container
 let headingContainer = $("#heading-container");
 
+// event listener for when search button is clicked
 locationSearch.on("click", function() {
+    // prevents input from disappearing
     event.preventDefault();
+    // checks to see locationValue value 
     console.log(locationValue.val());
 
+    // variable to parse the items in local storage from key "citySearch"
     let searchCity = JSON.parse(localStorage.getItem("citySearch"));
 
+    // condition stmt if there is nothing in local storage to set citySearch to empty array
     if (!searchCity) {
         searchCity = [];
     };
 
+    // everytime new searchCity, adds city to end of citySearch array
     searchCity.push(locationValue.val());
+    // sets searched city in local storage as string
     localStorage.setItem("citySearch", JSON.stringify(searchCity));
 
+    // calls weatherAPIFetch function
     weatherAPIFetch();
+    // calls addPreviousCity function
     addPreviousCity();
 
+    // clears locationValue input
     locationValue.val("");
 });
 
+// addPreviousCity function
 function addPreviousCity() {
 
+    // variable to parse the items in local storage from key "citySearch"
     let searchCity = JSON.parse(localStorage.getItem("citySearch"));
 
+    // condition stmt if there is nothing in local storage to set citySearch to empty array
     if (!searchCity) {
         searchCity = [];
     };
 
+    // console logs searchCity variable
     console.log(searchCity);
 
+    // iteration to create variable previousCity for each search
     for (i = 0; i < searchCity.length; i++) {
         let previousCity = `
         <li><a class="dropdown-item text-color" onclick="previousWeatherFetch(event)">${searchCity[i]}</a></li>
         `;
     
+        // appends template literal to class dropdown menu
         $(".dropdown-menu").append(previousCity);
     };
    
 };
 
+// weatherAPIFetch function
 function weatherAPIFetch() {
+    // URL to use with API
     const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + locationValue.val() + "?unitGroup=metric&key=" + apiKey;
 
+    // calls fetchWeather function, passes through requestUrl
     fetchWeather(requestUrl);
 };
 
+// previousWeatherFetch function, adds event
 function previousWeatherFetch(event) {
+    // URL to use with API
     const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + $(event.target).text() + "?unitGroup=metric&key=" + apiKey;
 
+     // calls fetchWeather function, passes through requestUrl
     fetchWeather(requestUrl);
 };
 
-
+// fetchWeather function, passes through request URL
 function fetchWeather(requestUrl) {
+    // fetch requestUrl, passes through request URL
     fetch(requestUrl)
+        // promise to return response
         .then(function (response) {
             return response.json();
         })
+        // promise to run function with API data
         .then(function (data) {
+            // console logs API data
             console.log(data);
-
+            
+            // changes footer position
             $("footer").css("position", "relative");
+
+            // removes hide class
             $("h2").removeClass("hide");
             $("div").removeClass("hide");
 
+            // variables to access different elements of card
             let weatherIcon = $(".weather-icon");
             let dates = $(".date");
             let description = $(".description");
@@ -75,6 +110,7 @@ function fetchWeather(requestUrl) {
             let humidity = $(".humidity");
             let windSpeed = $(".wind-speed");
 
+            // variables for new img src paths
             let snowPath = "./images/snowing.png";
             let rainPath = "./images/rain.png";
             let cloudyPath = "./images/cloudy.png";
@@ -83,17 +119,21 @@ function fetchWeather(requestUrl) {
             let windPath = "./images/wind-and-cloud.png"
             let sunnyPath = "./images/sunny.png"
 
+            // variable for resolvedAddress from API
             resolvedAddress = data.resolvedAddress;
             console.log(resolvedAddress);
 
+            // changes h1 to resolve address after search
             $("#heading-container").text(resolvedAddress);
 
+            // updates current condition card with current weather conditions
             $(dates).eq(0).text(data.days[0].datetime + " Time: " + data.currentConditions.datetime);
             $(description).eq(0).text(data.currentConditions.conditions);
             $(temperature).eq(0).text("Temp: " + data.currentConditions.temp + " °C");
             $(humidity).eq(0).text("Humidity: " + data.currentConditions.humidity + " %");
             $(windSpeed).eq(0).text("Wind Speed: " + data.currentConditions.windspeed + " Kph");
 
+            // condition statement to check icon from API then change img accordingly
             if (data.currentConditions.icon == "snow") {
                 $(weatherIcon).eq(0).attr("src", snowPath);
             } else if (data.currentConditions.icon == "rain") {
@@ -112,7 +152,9 @@ function fetchWeather(requestUrl) {
                 $(weatherIcon).eq(0).attr("src", sunnyPath);
             }; 
 
+            // iteration to change next 5 cards with corresponding date/weather
             for (i = 1; i < data.days.length; i++) {
+                // updates future condition card with current weather conditions
                 $(dates).eq(i).text(data.days[i].datetime);
                 $(description).eq(i).text(data.days[i].description);
                 $(temperature).eq(i).text("Temp: " + data.days[i].temp + " °C");
@@ -120,6 +162,7 @@ function fetchWeather(requestUrl) {
                 $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed + " Kph");
                 console.log(data.days[i].icon);
 
+                // condition statement to check icon from API then change img accordingly
                 if (data.days[i].icon == "snow") {
                     $(weatherIcon).eq(i).attr("src", snowPath);
                 } else if (data.days[i].icon == "rain") {
@@ -140,5 +183,5 @@ function fetchWeather(requestUrl) {
             };
         });
 };
-
+//  calls addPreviousCity function
 addPreviousCity();
