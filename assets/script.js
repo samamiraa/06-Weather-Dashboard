@@ -1,6 +1,6 @@
 let locationSearch = $("#search-btn");
 let locationValue = $("#location-input");
-let apiKey = api_Key;
+let apiKey = "2YBPH4UM4FHESK8XAKAZAQB2T";
 let weatherData;
 let headingContainer = $("#heading-container");
 
@@ -88,25 +88,25 @@ function fetchWeather(requestUrl) {
 
             $("#heading-container").text(resolvedAddress);
 
-            $(dates).eq(0).text(data.days[0].datetime);
-            $(description).eq(0).text(data.days[0].description);
-            $(temperature).eq(0).text("Temp: " + data.days[0].temp + " °C");
-            $(humidity).eq(0).text("Humidity: " + data.days[0].humidity + " %");
-            $(windSpeed).eq(0).text("Wind Speed: " + data.days[0].windspeed + " Kph");
+            $(dates).eq(0).text(data.days[0].datetime + " Time: " + data.currentConditions.datetime);
+            $(description).eq(0).text(data.currentConditions.conditions);
+            $(temperature).eq(0).text("Temp: " + data.currentConditions.temp + " °C");
+            $(humidity).eq(0).text("Humidity: " + data.currentConditions.humidity + " %");
+            $(windSpeed).eq(0).text("Wind Speed: " + data.currentConditions.windspeed + " Kph");
 
-            if (data.days[0].icon == "snow") {
+            if (data.currentConditions.icon == "snow") {
                 $(weatherIcon).eq(0).attr("src", snowPath);
-            } else if (data.days[0].icon == "rain") {
+            } else if (data.currentConditions.icon == "rain") {
                 $(weatherIcon).eq(0).attr("src", rainPath);
-            } else if (data.days[0].icon == "cloudy") {
+            } else if (data.currentConditions.icon == "cloudy") {
                 $(weatherIcon).eq(0).attr("src", cloudyPath);
-            } else if (data.days[0].icon == "partly-cloudy-day") {
+            } else if (data.currentConditions.icon == "partly-cloudy-day") {
                 $(weatherIcon).eq(0).attr("src", partlyCloudyPath);
-            } else if (data.days[0].icon == "partly-cloudy-night") {
+            } else if (data.currentConditions.icon == "partly-cloudy-night") {
                 $(weatherIcon).eq(0).attr("src", partlyCloudyPath);
-            } else if (data.days[0].icon == "fog") {
+            } else if (data.currentConditions.icon == "fog") {
                 $(weatherIcon).eq(0).attr("src", fogPath);
-            } else if (data.days[0].icon == "wind") {
+            } else if (data.currentConditions.icon == "wind") {
                 $(weatherIcon).eq(0).attr("src", windPath);
             } else {
                 $(weatherIcon).eq(0).attr("src", sunnyPath);
