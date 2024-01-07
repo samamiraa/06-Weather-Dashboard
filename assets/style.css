@@ -1,28 +1,34 @@
+/* bg color & font for body */
 body {
     background-color: #0d5103;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+/* centers text, margin & font weight for h1 */
 h1 {
     text-align: center;
     margin-top: 20px;
     font-weight: 900;
 }
 
+/* centers text, margin & font weight for h2 */
 h2 {
     text-align: center;
     margin-top: 20px;
     font-weight: 700;
 }
 
+/* font weight for h5 */
 h5 {
     font-weight: 700;
 }
 
+/* height for img */
 img {
     height: 250px;
 }
 
+/* bg color, text align & color, padding, position, bottom, width for footer */
 footer {
     background-color: #111213;
     text-align: center;
@@ -33,10 +39,12 @@ footer {
     width: 100vw;  
 }
 
+/* sets text color for class text-color */
 .text-color {
     color: #137903;
 }
 
+/* sets display for class hide */
 .hide {
     display: none;
 }
