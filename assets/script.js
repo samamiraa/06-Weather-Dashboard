@@ -87,9 +87,9 @@ function fetchWeather(requestUrl) {
             for (i = 0; i < data.days.length; i++) {
                 $(dates).eq(i).text(data.days[i].datetime);
                 $(description).eq(i).text(data.days[i].description);
-                $(temperature).eq(i).text("Temp: " + data.days[i].temp + " celsius");
+                $(temperature).eq(i).text("Temp: " + data.days[i].temp + " °C");
                 $(humidity).eq(i).text("Humidity: " + data.days[i].humidity);
-                $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed + "Kph");
+                $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed + " Kph");
                 console.log(data.days[i].icon);
 
                 if (data.days[i].icon == "snow") {
