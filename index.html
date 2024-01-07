@@ -36,7 +36,7 @@
             </ul>
             <!-- search input for cities + button to search -->
             <form class="d-flex" role="search">
-              <input class="form-control me-2" id="location-input" type="search" placeholder="City" aria-label="Search">
+              <input class="form-control me-2" id="location-input" type="search" placeholder="City, State/Province" aria-label="Search">
               <button class="btn btn-outline-success" id="search-btn" type="submit">Search</button>
             </form>
           </div>
@@ -68,7 +68,7 @@
       <h2 class="hide">5 day Forecast</h2>
     
       <!-- future weather card -> contains img, date & time, description, temp, himidity, wind speed -->
-      <div class="row row-cols-1 row-cols-md-5 g-4 justify-content-center m-3">
+      <div class="row row-cols-1 row-cols-md-5 g-4 justify-content-center m-3" id="card-container">
         <div class="col">
           <div class="card h-100 bg-secondary border-dark border-3">
             <img src="./images/rain.png" class="card-img-top p-4 weather-icon" alt="Graphic of rain cloud">
