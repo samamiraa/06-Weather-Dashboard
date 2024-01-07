@@ -71,7 +71,13 @@ function fetchWeather(requestUrl) {
             let humidity = $(".humidity");
             let windSpeed = $(".wind-speed");
 
-            let snowPath = "./images/snowing.png"
+            let snowPath = "./images/snowing.png";
+            let rainPath = "./images/rain.png";
+            let cloudyPath = "./images/cloudy.png";
+            let partlyCloudyPath = "./images/partly-cloudy.png";
+            let fogPath = "./images/foggy.png";
+            let windPath = "./images/wind-and-cloud.png"
+            let sunnyPath = "./images/sunny.png"
 
             resolvedAddress = data.resolvedAddress;
             console.log(resolvedAddress);
@@ -84,14 +90,26 @@ function fetchWeather(requestUrl) {
                 $(temperature).eq(i).text("Temp: " + data.days[i].temp + " celsius");
                 $(humidity).eq(i).text("Humidity: " + data.days[i].humidity);
                 $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed + "Kph");
+                console.log(data.days[i].icon);
 
                 if (data.days[i].icon == "snow") {
-                $(weatherIcon).eq(i).attr("src", snowPath);
-                }
-                
-                console.log(data.days[i].icon);
+                    $(weatherIcon).eq(i).attr("src", snowPath);
+                } else if (data.days[i].icon == "rain") {
+                    $(weatherIcon).eq(i).attr("src", rainPath);
+                } else if (data.days[i].icon == "cloudy") {
+                    $(weatherIcon).eq(i).attr("src", cloudyPath);
+                } else if (data.days[i].icon == "partly-cloudy-day") {
+                    $(weatherIcon).eq(i).attr("src", partlyCloudyPath);
+                } else if (data.days[i].icon == "partly-cloudy-night") {
+                    $(weatherIcon).eq(i).attr("src", partlyCloudyPath);
+                } else if (data.days[i].icon == "fog") {
+                    $(weatherIcon).eq(i).attr("src", fogPath);
+                } else if (data.days[i].icon == "wind") {
+                    $(weatherIcon).eq(i).attr("src", windPath);
+                } else {
+                    $(weatherIcon).eq(i).attr("src", sunnyPath);
+                }; 
             };
-            
         });
 };
 
