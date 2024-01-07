@@ -1,26 +1,15 @@
 # 06-Weather-Dashboard
 
+LIVE URL 👇🏼<br>
+
+
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+My motivation to complete this was from having already completed project 1. This made me feel confident with how I can access data from the API and plug it in wherever needed. I built this to solidify my understanding with not only API's, but javascriot, jquery, css, html & bootstrap. This allows users to access a website where they can easily search weather anywhere in the world with a user friendly interface. I learned that the simplest fix could be making sure you add the correct class to every element, after you have stared at your code for an hour wondering why it wasn't working!😅
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+N/A
 
 ## Usage
 
@@ -38,24 +27,31 @@ https://www.w3schools.com/jquery/sel_eq.asp#:~:text=The%20%3Aeq()%20selector%20s
 
 Rain Icon
 <a href="https://www.flaticon.com/free-icons/rain" title="rain icons">Rain icons created by tulpahn - Flaticon</a>
+<br>
 Snow Icon
 <a href="https://www.flaticon.com/free-icons/snowing" title="snowing icons">Snowing icons created by Freepik - Flaticon</a>
+<br>
 Sun Icon
 <a href="https://www.flaticon.com/free-icons/sunny" title="sunny icons">Sunny icons created by fjstudio - Flaticon</a>
+<br>
 Wind Icon
 <a href="https://www.flaticon.com/free-icons/windy" title="windy icons">Windy icons created by Freepik - Flaticon</a>
+<br>
 Thunder Icon
 <a href="https://www.flaticon.com/free-icons/weather" title="weather icons">Weather icons created by Freepik - Flaticon</a>
+<br>
 Cloud Icon
 <a href="https://www.flaticon.com/free-icons/cloudy" title="cloudy icons">Cloudy icons created by Freepik - Flaticon</a>
+<br>
 Partly Cloudy Icon
 <a href="https://www.flaticon.com/free-icons/cloudy" title="cloudy icons">Cloudy icons created by kosonicon - Flaticon</a>
+<br>
 Fog Icon
 <a href="https://www.flaticon.com/free-icons/misty" title="misty icons">Misty icons created by Muhamad Ulum - Flaticon</a>
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+The MIT License is short and to the point. It lets people do almost anything they want with your project, like making and distributing closed source versions
 
 ---
 
@@ -63,18 +59,16 @@ The last section of a high-quality README file is the license. This lets other d
 
 ## Badges
 
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+N/A
 
 ## Features
 
-If your project has a lot of features, list them here.
+N/A
 
 ## How to Contribute
 
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+N/A
 
 ## Tests
 
-Go the extra mile and write tests for your application. Then
+Look up the weather for any city you can think of! See #Usage for more info on how!
