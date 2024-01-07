@@ -46,6 +46,10 @@ Wind Icon
 <a href="https://www.flaticon.com/free-icons/windy" title="windy icons">Windy icons created by Freepik - Flaticon</a>
 Thunder Icon
 <a href="https://www.flaticon.com/free-icons/weather" title="weather icons">Weather icons created by Freepik - Flaticon</a>
+Cloud Icon
+<a href="https://www.flaticon.com/free-icons/cloudy" title="cloudy icons">Cloudy icons created by Freepik - Flaticon</a>
+Partly Cloudy Icon
+<a href="https://www.flaticon.com/free-icons/cloudy" title="cloudy icons">Cloudy icons created by kosonicon - Flaticon</a>
 
 ## License
 

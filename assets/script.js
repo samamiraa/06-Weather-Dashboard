@@ -44,7 +44,7 @@ function addPreviousCity() {
 };
 
 function weatherAPIFetch() {
-    const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + locationValue.val() + "/?key=" + apiKey;
+    const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + locationValue.val() + "/?key=" + apiKey + "&iconSet=icons1";
 
     fetchWeather(requestUrl);
 };
@@ -71,6 +71,8 @@ function fetchWeather(requestUrl) {
             let humidity = $(".humidity");
             let windSpeed = $(".wind-speed");
 
+            let snowPath = "./images/snowing.png"
+
             resolvedAddress = data.resolvedAddress;
             console.log(resolvedAddress);
 
@@ -81,9 +83,13 @@ function fetchWeather(requestUrl) {
                 $(description).eq(i).text(data.days[i].description);
                 $(temperature).eq(i).text("Temp: " + data.days[i].temp + " celsius");
                 $(humidity).eq(i).text("Humidity: " + data.days[i].humidity);
-                $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed);
+                $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed + "Kph");
 
-                console.log("hello");
+                if (data.days[i].icon == "snow") {
+                $(weatherIcon).eq(i).attr("src", snowPath);
+                }
+                
+                console.log(data.days[i].icon);
             };
             
         });
