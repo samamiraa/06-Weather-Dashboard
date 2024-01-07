@@ -1,7 +1,7 @@
 # 06-Weather-Dashboard
 
 LIVE URL 👇🏼<br>
-
+https://samamiraa.github.io/06-Weather-Dashboard/
 
 ## Description
 
@@ -51,7 +51,7 @@ From there if you want to see the weather for one of those cities again, you can
 <br>
 <img width="1280" alt="toronto future conditions" src="./readmeimgs/future toronto.png"><br>
 <br>
-If you click the weather button in the Navbar, it will refresh the page and bring you back to the starting homepage.
+If you click the weather button in the Navbar, it will refresh the page and bring you back to the starting homepage.<br>
 <img width="1280" alt="nav bar" src="./readmeimgs/nav bar.png"><br>
 <br>
 <img width="1280" alt="Weather button in navbar" src="./readmeimgs/refresh to homepage.png"><br>
