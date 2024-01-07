@@ -9,6 +9,7 @@ let weatherData;
 // variable to access heading container
 let headingContainer = $("#heading-container");
 let cardContainer = $("#card-container");
+let btnCity = $(".btn-city");
 
 // event listener for when search button is clicked
 locationSearch.on("click", function() {
@@ -99,110 +100,115 @@ function fetchLonLat(requestUrl) {
             console.log(data);
             console.log(data[0].lat);
             
-            cityButtons(data);
+            $(headingContainer.text("Did you mean?"));
+            $(cardContainer).addClass("hide");
+
+            for (i =0; i < data.length; i++) {
+                let cityBtn = `
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-secondary btn-outline-dark p-4 m-4 btn-city" type="button" onclick="fetchWeather(data)">${data[i].name + ", " + data[i].state}</button>
+                    </div>
+                `;
+        
+                $(headingContainer).after(cityBtn);
+        
+                fetchWeather(data);
+            };
         });
 };
 
-function cityButtons(data) {
-    $(headingContainer.text("Did you mean?"));
-    $(cardContainer).addClass("hide");
-
-    for (i =0; i < data.length; i++) {
-        let cityBtn = `
-        <button onclick="fetchWeather(data)" type="button" class="btn btn-secondary btn-outline-dark">${data[i].name + ", " + data[i].state}</button>
-        `;
-
-        $(headingContainer).after(cityBtn);
-    }
-};
-
 function fetchWeather(data) {
-    // changes footer position
-    $("footer").css("position", "relative");
+    btnCity.on("click", function(data) {
+        let lon = $(this).data.lat;
+        console.log(lon);
+    });
 
-    // removes hide class
-    $("h2").removeClass("hide");
-    $("div").removeClass("hide");
+    // // changes footer position
+    // $("footer").css("position", "relative");
 
-    // variables to access different elements of card
-    let weatherIcon = $(".weather-icon");
-    let dates = $(".date");
-    let description = $(".description");
-    let temperature = $(".temperature");
-    let humidity = $(".humidity");
-    let windSpeed = $(".wind-speed");
+    // // removes hide class
+    // $("h2").removeClass("hide");
+    // $("div").removeClass("hide");
 
-    // variables for new img src paths
-    let snowPath = "./images/snowing.png";
-    let rainPath = "./images/rain.png";
-    let cloudyPath = "./images/cloudy.png";
-    let partlyCloudyPath = "./images/partly-cloudy.png";
-    let fogPath = "./images/foggy.png";
-    let windPath = "./images/wind-and-cloud.png"
-    let sunnyPath = "./images/sunny.png"
+    // // variables to access different elements of card
+    // let weatherIcon = $(".weather-icon");
+    // let dates = $(".date");
+    // let description = $(".description");
+    // let temperature = $(".temperature");
+    // let humidity = $(".humidity");
+    // let windSpeed = $(".wind-speed");
 
-    // variable for resolvedAddress from API
-    resolvedAddress = data.resolvedAddress;
-    console.log(resolvedAddress);
+    // // variables for new img src paths
+    // let snowPath = "./images/snowing.png";
+    // let rainPath = "./images/rain.png";
+    // let cloudyPath = "./images/cloudy.png";
+    // let partlyCloudyPath = "./images/partly-cloudy.png";
+    // let fogPath = "./images/foggy.png";
+    // let windPath = "./images/wind-and-cloud.png"
+    // let sunnyPath = "./images/sunny.png"
 
-    // changes h1 to resolve address after search
-    $("#heading-container").text(resolvedAddress);
+    // // variable for resolvedAddress from API
+    // resolvedAddress = data.resolvedAddress;
+    // console.log(resolvedAddress);
 
-    // updates current condition card with current weather conditions
-    $(dates).eq(0).text(data.days[0].datetime + " Time: " + data.currentConditions.datetime);
-    $(description).eq(0).text(data.currentConditions.conditions);
-    $(temperature).eq(0).text("Temp: " + data.currentConditions.temp + " °C");
-    $(humidity).eq(0).text("Humidity: " + data.currentConditions.humidity + " %");
-    $(windSpeed).eq(0).text("Wind Speed: " + data.currentConditions.windspeed + " Kph");
+    // // changes h1 to resolve address after search
+    // $("#heading-container").text(resolvedAddress);
 
-    // condition statement to check icon from API then change img accordingly
-    if (data.currentConditions.icon == "snow") {
-        $(weatherIcon).eq(0).attr("src", snowPath);
-    } else if (data.currentConditions.icon == "rain") {
-        $(weatherIcon).eq(0).attr("src", rainPath);
-    } else if (data.currentConditions.icon == "cloudy") {
-        $(weatherIcon).eq(0).attr("src", cloudyPath);
-    } else if (data.currentConditions.icon == "partly-cloudy-day") {
-        $(weatherIcon).eq(0).attr("src", partlyCloudyPath);
-    } else if (data.currentConditions.icon == "partly-cloudy-night") {
-        $(weatherIcon).eq(0).attr("src", partlyCloudyPath);
-    } else if (data.currentConditions.icon == "fog") {
-        $(weatherIcon).eq(0).attr("src", fogPath);
-    } else if (data.currentConditions.icon == "wind") {
-        $(weatherIcon).eq(0).attr("src", windPath);
-    } else {
-        $(weatherIcon).eq(0).attr("src", sunnyPath);
-    }; 
+    // // updates current condition card with current weather conditions
+    // $(dates).eq(0).text(data.days[0].datetime + " Time: " + data.currentConditions.datetime);
+    // $(description).eq(0).text(data.currentConditions.conditions);
+    // $(temperature).eq(0).text("Temp: " + data.currentConditions.temp + " °C");
+    // $(humidity).eq(0).text("Humidity: " + data.currentConditions.humidity + " %");
+    // $(windSpeed).eq(0).text("Wind Speed: " + data.currentConditions.windspeed + " Kph");
 
-    // iteration to change next 5 cards with corresponding date/weather
-    for (i = 1; i < data.days.length; i++) {
-        // updates future condition card with current weather conditions
-        $(dates).eq(i).text(data.days[i].datetime);
-        $(description).eq(i).text(data.days[i].description);
-        $(temperature).eq(i).text("Temp: " + data.days[i].temp + " °C");
-        $(humidity).eq(i).text("Humidity: " + data.days[i].humidity + " %");
-        $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed + " Kph");
-        console.log(data.days[i].icon);
+    // // condition statement to check icon from API then change img accordingly
+    // if (data.currentConditions.icon == "snow") {
+    //     $(weatherIcon).eq(0).attr("src", snowPath);
+    // } else if (data.currentConditions.icon == "rain") {
+    //     $(weatherIcon).eq(0).attr("src", rainPath);
+    // } else if (data.currentConditions.icon == "cloudy") {
+    //     $(weatherIcon).eq(0).attr("src", cloudyPath);
+    // } else if (data.currentConditions.icon == "partly-cloudy-day") {
+    //     $(weatherIcon).eq(0).attr("src", partlyCloudyPath);
+    // } else if (data.currentConditions.icon == "partly-cloudy-night") {
+    //     $(weatherIcon).eq(0).attr("src", partlyCloudyPath);
+    // } else if (data.currentConditions.icon == "fog") {
+    //     $(weatherIcon).eq(0).attr("src", fogPath);
+    // } else if (data.currentConditions.icon == "wind") {
+    //     $(weatherIcon).eq(0).attr("src", windPath);
+    // } else {
+    //     $(weatherIcon).eq(0).attr("src", sunnyPath);
+    // }; 
 
-        // condition statement to check icon from API then change img accordingly
-        if (data.days[i].icon == "snow") {
-            $(weatherIcon).eq(i).attr("src", snowPath);
-        } else if (data.days[i].icon == "rain") {
-            $(weatherIcon).eq(i).attr("src", rainPath);
-        } else if (data.days[i].icon == "cloudy") {
-            $(weatherIcon).eq(i).attr("src", cloudyPath);
-        } else if (data.days[i].icon == "partly-cloudy-day") {
-            $(weatherIcon).eq(i).attr("src", partlyCloudyPath);
-        } else if (data.days[i].icon == "partly-cloudy-night") {
-            $(weatherIcon).eq(i).attr("src", partlyCloudyPath);
-        } else if (data.days[i].icon == "fog") {
-            $(weatherIcon).eq(i).attr("src", fogPath);
-        } else if (data.days[i].icon == "wind") {
-            $(weatherIcon).eq(i).attr("src", windPath);
-        } else {
-            $(weatherIcon).eq(i).attr("src", sunnyPath);
-        }; 
-    };
+    // // iteration to change next 5 cards with corresponding date/weather
+    // for (i = 1; i < data.days.length; i++) {
+    //     // updates future condition card with current weather conditions
+    //     $(dates).eq(i).text(data.days[i].datetime);
+    //     $(description).eq(i).text(data.days[i].description);
+    //     $(temperature).eq(i).text("Temp: " + data.days[i].temp + " °C");
+    //     $(humidity).eq(i).text("Humidity: " + data.days[i].humidity + " %");
+    //     $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed + " Kph");
+    //     console.log(data.days[i].icon);
+
+    //     // condition statement to check icon from API then change img accordingly
+    //     if (data.days[i].icon == "snow") {
+    //         $(weatherIcon).eq(i).attr("src", snowPath);
+    //     } else if (data.days[i].icon == "rain") {
+    //         $(weatherIcon).eq(i).attr("src", rainPath);
+    //     } else if (data.days[i].icon == "cloudy") {
+    //         $(weatherIcon).eq(i).attr("src", cloudyPath);
+    //     } else if (data.days[i].icon == "partly-cloudy-day") {
+    //         $(weatherIcon).eq(i).attr("src", partlyCloudyPath);
+    //     } else if (data.days[i].icon == "partly-cloudy-night") {
+    //         $(weatherIcon).eq(i).attr("src", partlyCloudyPath);
+    //     } else if (data.days[i].icon == "fog") {
+    //         $(weatherIcon).eq(i).attr("src", fogPath);
+    //     } else if (data.days[i].icon == "wind") {
+    //         $(weatherIcon).eq(i).attr("src", windPath);
+    //     } else {
+    //         $(weatherIcon).eq(i).attr("src", sunnyPath);
+    //     }; 
+    // };
 }
 //  calls addPreviousCity function
 addPreviousCity();
