@@ -57,6 +57,13 @@ If you click the weather button in the Navbar, it will refresh the page and brin
 <img width="1280" alt="Weather button in navbar" src="./readmeimgs/refresh to homepage.png"><br>
 <br>
 <img width="1280" alt="weather dashboard homepage" src="./readmeimgs/homepage.png"><br>
+<br>
+Lastly, in the footer, there is a link to the API I used if you want to check it out<br>
+<img width="1280" alt="webpage footer" src="./readmeimgs/footer.png"><br>
+<br>
+It will take you right to their webpage where you can look into it more
+<img width="1280" alt="visual crossing homepage" src="./readmeimgs/api.png"><br>
+
 
 ## Credits
 
