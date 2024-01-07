@@ -30,11 +30,37 @@ After you click search, it will bring up the current conditions for that city & 
 <br>
 <img width="1280" alt="toronto future conditions" src="./readmeimgs/future toronto.png"><br>
 <br>
-
+You can complete as many searches as you'd like<br>
+<img width="1280" alt="quezon city inputted in search bar" src="./readmeimgs/quezon city search.png"><br>
+<br>
+After you click search, it will bring up the current conditions for the next city & below the 5 day forecast<br>
+<img width="1280" alt="quezon city current conditions" src="./readmeimgs/quezon city current.png"><br>
+<br>
+<img width="1280" alt="quezon city future conditions" src="./readmeimgs/future quezon city.png"><br>
+<br>
+In the Nav bar, there is a dropdown option called 'Previously searched'.<br>
+<img width="1280" alt="nav bar" src="./readmeimgs/nav bar.png"><br>
+<br>
+<img width="1280" alt="previously searched dropdown" src="./readmeimgs/previoussearch dropdown.png"><br>
+<br>
+Once clicked, all previous searches appear<br>
+<img width="1280" alt="previously searched dropdown" src="./readmeimgs/drop down searches.png"><br>
+<br>
+From there if you want to see the weather for one of those cities again, you can click the dropdown item and it will bring that cities information back up<br>
+<img width="1280" alt="toronto current conditions" src="./readmeimgs/current conditions toronto.png"><br>
+<br>
+<img width="1280" alt="toronto future conditions" src="./readmeimgs/future toronto.png"><br>
+<br>
+If you click the weather button in the Navbar, it will refresh the page and bring you back to the starting homepage.
+<img width="1280" alt="nav bar" src="./readmeimgs/nav bar.png"><br>
+<br>
+<img width="1280" alt="Weather button in navbar" src="./readmeimgs/refresh to homepage.png"><br>
+<br>
+<img width="1280" alt="weather dashboard homepage" src="./readmeimgs/homepage.png"><br>
 
 ## Credits
 
-Thank you to my tutor Andrew, who refreshed my memory after a christmas break.<br>
+Thank you to my tutor Andrew, who refreshed my memory after a christmas break & helped me when I was stuck.<br>
 
 https://www.w3schools.com/jquery/sel_eq.asp#:~:text=The%20%3Aeq()%20selector%20selects,like%20in%20the%20example%20above
 
