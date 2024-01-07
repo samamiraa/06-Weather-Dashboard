@@ -44,13 +44,13 @@ function addPreviousCity() {
 };
 
 function weatherAPIFetch() {
-    const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + locationValue.val() + "/?key=" + apiKey + "&iconSet=icons1";
+    const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + locationValue.val() + "?unitGroup=metric&key=" + apiKey;
 
     fetchWeather(requestUrl);
 };
 
 function previousWeatherFetch(event) {
-    const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + $(event.target).text() + "/?key=" + apiKey;
+    const requestUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + $(event.target).text() + "?unitGroup=metric&key=" + apiKey;
 
     fetchWeather(requestUrl);
 };
@@ -63,6 +63,10 @@ function fetchWeather(requestUrl) {
         })
         .then(function (data) {
             console.log(data);
+
+            $("footer").css("position", "relative");
+            $("h2").removeClass("hide");
+            $("div").removeClass("hide");
 
             let weatherIcon = $(".weather-icon");
             let dates = $(".date");
@@ -84,11 +88,35 @@ function fetchWeather(requestUrl) {
 
             $("#heading-container").text(resolvedAddress);
 
-            for (i = 0; i < data.days.length; i++) {
+            $(dates).eq(0).text(data.days[0].datetime);
+            $(description).eq(0).text(data.days[0].description);
+            $(temperature).eq(0).text("Temp: " + data.days[0].temp + " °C");
+            $(humidity).eq(0).text("Humidity: " + data.days[0].humidity + " %");
+            $(windSpeed).eq(0).text("Wind Speed: " + data.days[0].windspeed + " Kph");
+
+            if (data.days[0].icon == "snow") {
+                $(weatherIcon).eq(0).attr("src", snowPath);
+            } else if (data.days[0].icon == "rain") {
+                $(weatherIcon).eq(0).attr("src", rainPath);
+            } else if (data.days[0].icon == "cloudy") {
+                $(weatherIcon).eq(0).attr("src", cloudyPath);
+            } else if (data.days[0].icon == "partly-cloudy-day") {
+                $(weatherIcon).eq(0).attr("src", partlyCloudyPath);
+            } else if (data.days[0].icon == "partly-cloudy-night") {
+                $(weatherIcon).eq(0).attr("src", partlyCloudyPath);
+            } else if (data.days[0].icon == "fog") {
+                $(weatherIcon).eq(0).attr("src", fogPath);
+            } else if (data.days[0].icon == "wind") {
+                $(weatherIcon).eq(0).attr("src", windPath);
+            } else {
+                $(weatherIcon).eq(0).attr("src", sunnyPath);
+            }; 
+
+            for (i = 1; i < data.days.length; i++) {
                 $(dates).eq(i).text(data.days[i].datetime);
                 $(description).eq(i).text(data.days[i].description);
                 $(temperature).eq(i).text("Temp: " + data.days[i].temp + " °C");
-                $(humidity).eq(i).text("Humidity: " + data.days[i].humidity);
+                $(humidity).eq(i).text("Humidity: " + data.days[i].humidity + " %");
                 $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed + " Kph");
                 console.log(data.days[i].icon);
 
