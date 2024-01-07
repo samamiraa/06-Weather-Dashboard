@@ -1,5 +1,8 @@
+<!-- sets doctype HTML -->
 <!DOCTYPE html>
+<!-- sets language to english  -->
 <html lang="en">
+<!-- sets charset, title for webpage & links external style sheets & third party APIs -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +13,17 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
+<!-- html visible to user -->
 <body>
+  <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
+          <!-- clicked refreshes back to homepage -->
           <a class="navbar-brand text-color" href="./index.html">Weather</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <!-- clicked opens drop down of previously searched cities -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item dropdown">
@@ -27,6 +34,7 @@
                 </ul>
             </li>
             </ul>
+            <!-- search input for cities + button to search -->
             <form class="d-flex" role="search">
               <input class="form-control me-2" id="location-input" type="search" placeholder="City" aria-label="Search">
               <button class="btn btn-outline-success" id="search-btn" type="submit">Search</button>
@@ -35,10 +43,13 @@
         </div>
       </nav>
 
+      <!-- Homepage heading -->
       <h1 id="heading-container">What's the weather today?</h1>
 
+      <!-- Current weather heading -->
       <h2 class="hide">Current</h2>
 
+      <!-- current weather card -> contains img, date & time, description, temp, himidity, wind speed -->
       <div class="col">
         <div class="card h-100 bg-secondary border-dark border-3 w-50 m-auto hide">
           <img src="./images/rain.png" class="card-img-top p-4 weather-icon" alt="Graphic of rain cloud">
@@ -53,8 +64,10 @@
           </div>
         </div>
 
+        <!-- future forecast heading -->
       <h2 class="hide">5 day Forecast</h2>
     
+      <!-- future weather card -> contains img, date & time, description, temp, himidity, wind speed -->
       <div class="row row-cols-1 row-cols-md-5 g-4 justify-content-center m-3">
         <div class="col">
           <div class="card h-100 bg-secondary border-dark border-3">
@@ -70,6 +83,7 @@
             </div>
           </div>
         </div>
+         <!-- future weather card -> contains img, date & time, description, temp, himidity, wind speed -->
         <div class="col">
           <div class="card h-100 bg-secondary border-dark border-3">
             <img src="./images/snowing.png" class="card-img-top p-4 weather-icon" alt="Graphic of snow falling">
@@ -84,6 +98,7 @@
             </div>
           </div>
         </div>
+         <!-- future weather card -> contains img, date & time, description, temp, himidity, wind speed -->
         <div class="col">
           <div class="card h-100 bg-secondary border-dark border-3">
             <img src="./images/sunny.png" class="card-img-top p-4 weather-icon" alt="Graphic of sun">
@@ -98,6 +113,7 @@
             </div>
           </div>
         </div>
+         <!-- future weather card -> contains img, date & time, description, temp, himidity, wind speed -->
         <div class="col">
           <div class="card h-100 bg-secondary border-dark border-3">
             <img src="./images/wind-and-cloud.png" class="card-img-top p-4 weather-icon" alt="Graphic of wind">
@@ -112,6 +128,7 @@
             </div>
           </div>
         </div>
+         <!-- future weather card -> contains img, date & time, description, temp, himidity, wind speed -->
         <div class="col">
             <div class="card h-100 bg-secondary border-dark border-3">
               <img src="./images/heavy-rain.png" class="card-img-top p-4 weather-icon" alt="Graphic of thunder">
@@ -128,12 +145,16 @@
           </div>
       </div>
 
+      <!-- footer with link to API website -->
       <footer>API 👉🏽 <a class="text-color" href="www.visualcrossing.com/">Visual Crossing</a></footer>
 
+      <!-- links jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
+    <!-- links external config.js file -->
     <script type="text/javascript" src="./config.js"></script>
 
+    <!-- links external js file -->
     <script src="./assets/script.js"></script>
 </body>
 </html>
