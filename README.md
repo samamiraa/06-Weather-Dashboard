@@ -13,17 +13,30 @@ N/A
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Home page to the weather dashboard<br>
+<img width="1280" alt="weather dashboard homepage" src="./readmeimgs/homepage.png"><br>
+<br>
+First you want to go to the search input in the nav bar<br>
+<img width="1280" alt="nav bar" src="./readmeimgs/nav bar.png"><br>
+<br>
+On the right, there is an input for the city and search button<br>
+<img width="1280" alt="search input and button" src="./readmeimgs/search bar.png"><br>
+<br>
+Enter in city you'd like to see current & future weather for<br>
+<img width="1280" alt="toronto inputted in search bar" src="./readmeimgs/toronto search.png"><br>
+<br>
+After you click search, it will bring up the current conditions for that city & below the 5 day forecast<br>
+<img width="1280" alt="toronto current conditions" src="./readmeimgs/current conditions toronto.png"><br>
+<br>
+<img width="1280" alt="toronto future conditions" src="./readmeimgs/future toronto.png"><br>
+<br>
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
 
 ## Credits
 
-https://www.w3schools.com/jquery/sel_eq.asp#:~:text=The%20%3Aeq()%20selector%20selects,like%20in%20the%20example%20above).
+Thank you to my tutor Andrew, who refreshed my memory after a christmas break.<br>
+
+https://www.w3schools.com/jquery/sel_eq.asp#:~:text=The%20%3Aeq()%20selector%20selects,like%20in%20the%20example%20above
 
 Rain Icon
 <a href="https://www.flaticon.com/free-icons/rain" title="rain icons">Rain icons created by tulpahn - Flaticon</a>
