@@ -9,7 +9,6 @@ let weatherData;
 // variable to access heading container
 let headingContainer = $("#heading-container");
 let cardContainer = $("#card-container");
-let btnCity = $(".btn-city");
 
 // event listener for when search button is clicked
 locationSearch.on("click", function() {
@@ -106,22 +105,25 @@ function fetchLonLat(requestUrl) {
             for (i =0; i < data.length; i++) {
                 let cityBtn = `
                     <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-secondary btn-outline-dark p-4 m-4 btn-city" type="button" onclick="fetchWeather(data)">${data[i].name + ", " + data[i].state}</button>
+                    <button class="btn btn-secondary btn-outline-dark p-4 m-4 btn-city" type="button">${data[i].name + ", " + data[i].state}</button>
                     </div>
                 `;
-        
+
                 $(headingContainer).after(cityBtn);
-        
-                fetchWeather(data);
             };
+
+            $(".btn-city").on("click", function() {
+                const lat = $(this).data.lat;
+                const lon = $(this).data.lon;
+        
+                console.log(lon);
+            });
+
+            fetchWeather();
         });
 };
 
-function fetchWeather(data) {
-    btnCity.on("click", function(data) {
-        let lon = $(this).data.lat;
-        console.log(lon);
-    });
+function fetchWeather() {
 
     // // changes footer position
     // $("footer").css("position", "relative");
