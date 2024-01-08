@@ -111,10 +111,6 @@ Fog Icon
 
 The MIT License is short and to the point. It lets people do almost anything they want with your project, like making and distributing closed source versions
 
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
 ## Badges
 
 N/A
