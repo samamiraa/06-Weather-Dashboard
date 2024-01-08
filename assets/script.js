@@ -144,31 +144,26 @@ function fetchWeather() {
         // changes footer position
         $("footer").css("position", "relative");
 
+        // variables to access different elements of card
+        let weatherIcon = $(".weather-icon");
+        let dates = $(".date");
+        let description = $(".description");
+        let temperature = $(".temperature");
+        let humidity = $(".humidity");
+        let windSpeed = $(".wind-speed");
+
+        // variables for new img src paths
+        let snowPath = "./images/snowing.png";
+        let rainPath = "./images/rain.png";
+        let cloudyPath = "./images/cloudy.png";
+        let partlyCloudyPath = "./images/partly-cloudy.png";
+        let fogPath = "./images/foggy.png";
+        let windPath = "./images/wind-and-cloud.png"
+        let sunnyPath = "./images/sunny.png"
 
         });
 
     });
-
-    // // variables to access different elements of card
-    // let weatherIcon = $(".weather-icon");
-    // let dates = $(".date");
-    // let description = $(".description");
-    // let temperature = $(".temperature");
-    // let humidity = $(".humidity");
-    // let windSpeed = $(".wind-speed");
-
-    // // variables for new img src paths
-    // let snowPath = "./images/snowing.png";
-    // let rainPath = "./images/rain.png";
-    // let cloudyPath = "./images/cloudy.png";
-    // let partlyCloudyPath = "./images/partly-cloudy.png";
-    // let fogPath = "./images/foggy.png";
-    // let windPath = "./images/wind-and-cloud.png"
-    // let sunnyPath = "./images/sunny.png"
-
-    // // variable for resolvedAddress from API
-    // resolvedAddress = data.resolvedAddress;
-    // console.log(resolvedAddress);
 
     // // changes h1 to resolve address after search
     // $("#heading-container").text(resolvedAddress);
