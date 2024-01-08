@@ -23,20 +23,20 @@ On the right, there is an input for the city and search button<br>
 <img width="1280" alt="search input and button" src="./readmeimgs/search bar.png"><br>
 <br>
 Enter in city you'd like to see current & future weather for<br>
-<img width="1280" alt="toronto inputted in search bar" src="./readmeimgs/toronto search.png"><br>
+<img width="1280" alt="seattle inputted in search bar" src="./readmeimgs/seattle search.png"><br>
 <br>
 After you click search, it will bring up the current conditions for that city & below the 5 day forecast<br>
-<img width="1280" alt="toronto current conditions" src="./readmeimgs/current conditions toronto.png"><br>
+<img width="1280" alt="seattle current conditions" src="./readmeimgs/seattle current.png"><br>
 <br>
-<img width="1280" alt="toronto future conditions" src="./readmeimgs/future toronto.png"><br>
+<img width="1280" alt="seattle future conditions" src="./readmeimgs/seattle 5 day forecast.png"><br>
 <br>
 You can complete as many searches as you'd like<br>
-<img width="1280" alt="quezon city inputted in search bar" src="./readmeimgs/quezon city search.png"><br>
+<img width="1280" alt="new york inputted in search bar" src="./readmeimgs/new york search.png"><br>
 <br>
 After you click search, it will bring up the current conditions for the next city & below the 5 day forecast<br>
-<img width="1280" alt="quezon city current conditions" src="./readmeimgs/quezon city current.png"><br>
+<img width="1280" alt="new york current conditions" src="./readmeimgs/new york current.png"><br>
 <br>
-<img width="1280" alt="quezon city future conditions" src="./readmeimgs/future quezon city.png"><br>
+<img width="1280" alt="new york future conditions" src="./readmeimgs/new york 5 day forcast.png"><br>
 <br>
 In the Nav bar, there is a dropdown option called 'Previously searched'.<br>
 <img width="1280" alt="nav bar" src="./readmeimgs/nav bar.png"><br>
@@ -44,12 +44,12 @@ In the Nav bar, there is a dropdown option called 'Previously searched'.<br>
 <img width="1280" alt="previously searched dropdown" src="./readmeimgs/previoussearch dropdown.png"><br>
 <br>
 Once clicked, all previous searches appear<br>
-<img width="1280" alt="previously searched dropdown" src="./readmeimgs/drop down searches.png"><br>
+<img width="1280" alt="previously searched dropdown" src="./readmeimgs/seattle ny dropdown.png"><br>
 <br>
 From there if you want to see the weather for one of those cities again, you can click the dropdown item and it will bring that cities information back up<br>
-<img width="1280" alt="toronto current conditions" src="./readmeimgs/current conditions toronto.png"><br>
+<img width="1280" alt="seattle current conditions" src="./readmeimgs/seattle current.png"><br>
 <br>
-<img width="1280" alt="toronto future conditions" src="./readmeimgs/future toronto.png"><br>
+<img width="1280" alt="seattle future conditions" src="./readmeimgs/seattle 5 day forecast.png"><br>
 <br>
 If you click the weather button in the Navbar, it will refresh the page and bring you back to the starting homepage.<br>
 <img width="1280" alt="nav bar" src="./readmeimgs/nav bar.png"><br>
