@@ -69,7 +69,7 @@ function addPreviousCity() {
 // weatherAPIFetch function
 function weatherAPIFetch() {
     // URL to use with API
-    const requestUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + locationValue.val() + "&limit=5&appid=" + apiKey;
+    const requestUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + locationValue.val() + "&limit=5&appid=" + apiKey;
 
     console.log(weatherAPIFetch);
     // calls fetchWeather function, passes through requestUrl
@@ -79,7 +79,7 @@ function weatherAPIFetch() {
 // previousWeatherFetch function, adds event
 function previousWeatherFetch(event) {
     // URL to use with API
-    const requestUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + $(event.target).text() + "&limit=5&appid=" + apiKey;
+    const requestUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + $(event.target).text() + "&limit=5&appid=" + apiKey;
 
     console.log(previousWeatherFetch);
      // calls fetchWeather function, passes through requestUrl
@@ -125,7 +125,7 @@ function fetchWeather() {
         console.log(lon);
         console.log(lat);
 
-        let weatherRequestUrl = "api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
+        let weatherRequestUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
 
         fetch(weatherRequestUrl)
         // // promise to return response
@@ -136,15 +136,18 @@ function fetchWeather() {
         .then(function (data) {
         //     // console logs API data
             console.log(data);
+
+        // removes hide class
+        $("button").addClass("hide");
+        $("h2").removeClass("hide");
+        $("div").removeClass("hide");
+        // changes footer position
+        $("footer").css("position", "relative");
+
+
         });
 
     });
-    // // changes footer position
-    // $("footer").css("position", "relative");
-
-    // // removes hide class
-    // $("h2").removeClass("hide");
-    // $("div").removeClass("hide");
 
     // // variables to access different elements of card
     // let weatherIcon = $(".weather-icon");
