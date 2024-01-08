@@ -8,9 +8,13 @@ let apiKey = "44ed6a7c8e18cda2e4df46c0da942933";
 let weatherData;
 // variable to access heading container
 let headingContainer = $("#heading-container");
+// variable to access the card container
 let cardContainer = $("#card-container");
+// variable to access the current card container
+let currentCardContainer = $("#current-card-container")
 
-
+// adds class hide to current card container
+$(currentCardContainer).addClass("hide");
 // event listener for when search button is clicked
 locationSearch.on("click", function() {
     // prevents input from disappearing
@@ -69,6 +73,7 @@ function addPreviousCity() {
 // weatherAPIFetch function
 function weatherAPIFetch() {
 
+    // adds class hide to card container & h2
     $(".card-container").addClass("hide");
     $("h2").addClass("hide");
 
@@ -83,6 +88,7 @@ function weatherAPIFetch() {
 // previousWeatherFetch function, adds event
 function previousWeatherFetch(event) {
 
+    // adds class hide to card container & h2
     $(".card-container").addClass("hide");
     $("h2").addClass("hide");
 
@@ -109,11 +115,16 @@ function fetchLonLat(requestUrl) {
             // console logs API data
             console.log(data);
             console.log(data[0].lat);
+
+            // empties heading container from previous searches
             $(headingContainer).empty();
 
+            // changes heading container text
             $(headingContainer.text("Did you mean?"));
+            // adds class hide to card container
             $(cardContainer).addClass("hide");
 
+            // iteration to create a button for possible city options
             for (i =0; i < data.length; i++) {
                 let cityBtn = `
                     <div class="d-grid gap-2 col-6 mx-auto">
@@ -121,27 +132,36 @@ function fetchLonLat(requestUrl) {
                     </div>
                 `;
 
+                // appends city buttons to heading container
                 $(headingContainer).append(cityBtn);
             };
 
+            // calls fetchWeather function
             fetchWeather();
         });
 };
 
+// fetchWeather function
 function fetchWeather() {
 
+    // listens for click on class btn-city
     $(".btn-city").on("click", function() {
+        // variables for data from first API call
         let lat = $(this).data("lat");
         let lon = $(this).data("lon");
         let name = $(this).data("name");
         let state = $(this).data("state");
+
+        // checks to see if data is in variable
         console.log(lon);
         console.log(lat);
         console.log(name);
         console.log(state);
 
+        // variable with URL for API fetch to get weather information
         let weatherRequestUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=metric";
 
+        // fetch request
         fetch(weatherRequestUrl)
         // // promise to return response
        .then(function (response) {
@@ -152,7 +172,7 @@ function fetchWeather() {
         //     // console logs API data
             console.log(data);
 
-        // removes hide class
+        // removes/adds hide class
         $(".btn-city").addClass("hide");
         $("h2").removeClass("hide");
         $("div").removeClass("hide");
@@ -188,7 +208,7 @@ function fetchWeather() {
         let clearNightPath = "https://openweathermap.org/img/wn/01n@2x.png"
         
 
-        // changes h1 to resolve address after search
+        // changes h1 to city name,state/province,country
         $("#heading-container").text(name + ", " + state + ", " + data.city.country);
 
         // updates current condition card with current weather conditions
@@ -246,7 +266,7 @@ function fetchWeather() {
             $(humidity).eq(i).text("Humidity: " + data.list[i].main.humidity + " %");
             $(windSpeed).eq(i).text("Wind Speed: " + data.list[i].wind.speed + " Kph");
 
-                    // condition statement to check icon from API then change img accordingly
+        // condition statement to check icon from API then change img accordingly
         if (data.list[i].weather[0].icon == "04d") {
             $(weatherIcon).eq(i).attr("src", brokenCloudsDayPath);
         } else if (data.list[i].weather[0].icon == "04n") {
