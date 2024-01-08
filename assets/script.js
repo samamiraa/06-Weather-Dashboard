@@ -10,6 +10,7 @@ let weatherData;
 let headingContainer = $("#heading-container");
 let cardContainer = $("#card-container");
 
+
 // event listener for when search button is clicked
 locationSearch.on("click", function() {
     // prevents input from disappearing
@@ -127,13 +128,13 @@ function fetchWeather() {
         let weatherRequestUrl = "api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
 
         fetch(weatherRequestUrl)
-        // promise to return response
-        .then(function (response) {
+        // // promise to return response
+       .then(function (response) {
             return response.json();
         })
-        // promise to run function with API data
+        // // promise to run function with API data
         .then(function (data) {
-            // console logs API data
+        //     // console logs API data
             console.log(data);
         });
 
