@@ -109,9 +109,11 @@ function fetchLonLat(requestUrl) {
             // console logs API data
             console.log(data);
             console.log(data[0].lat);
+            $(headingContainer).empty();
 
             $(headingContainer.text("Did you mean?"));
             $(cardContainer).addClass("hide");
+            
 
             for (i =0; i < data.length; i++) {
                 let cityBtn = `
@@ -120,7 +122,7 @@ function fetchLonLat(requestUrl) {
                     </div>
                 `;
 
-                $(headingContainer).after(cityBtn);
+                $(headingContainer).append(cityBtn);
             };
 
             fetchWeather();
