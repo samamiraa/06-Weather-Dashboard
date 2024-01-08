@@ -25,15 +25,24 @@ On the right, there is an input for the city and search button<br>
 Enter in city you'd like to see current & future weather for<br>
 <img width="1280" alt="seattle inputted in search bar" src="./readmeimgs/seattle search.png"><br>
 <br>
-After you click search, it will bring up the current conditions for that city & below the 5 day forecast<br>
+After you click search, it will bring up the city options with that same name to clarify.<br>
+<img width="1280" alt="seattle city options" src="./readmeimgs/seattle city options.png"><br>
+<br>
+After you click the city option you want, it will bring up the current conditions for that city & below the 5 day forecast<br>
 <img width="1280" alt="seattle current conditions" src="./readmeimgs/seattle current.png"><br>
 <br>
 <img width="1280" alt="seattle future conditions" src="./readmeimgs/seattle 5 day forecast.png"><br>
 <br>
+After each search, it adds it to the Previously Searched drop down menu<br>
+<img width="1280" alt="seattle previously search drop down menu" src="./readmeimgs/seattle previous search.png"><br>
+<br>
 You can complete as many searches as you'd like<br>
 <img width="1280" alt="new york inputted in search bar" src="./readmeimgs/new york search.png"><br>
 <br>
-After you click search, it will bring up the current conditions for the next city & below the 5 day forecast<br>
+After you click search, it will bring up the city options with that same name to clarify.<br>
+<img width="1280" alt="new york city options" src="./readmeimgs/new york city options.png"><br>
+<br>
+After you click the city option you want, it will bring up the current conditions for that city & below the 5 day forecast<br>
 <img width="1280" alt="new york current conditions" src="./readmeimgs/new york current.png"><br>
 <br>
 <img width="1280" alt="new york future conditions" src="./readmeimgs/new york 5 day forcast.png"><br>
@@ -46,7 +55,10 @@ In the Nav bar, there is a dropdown option called 'Previously searched'.<br>
 Once clicked, all previous searches appear<br>
 <img width="1280" alt="previously searched dropdown" src="./readmeimgs/seattle ny dropdown.png"><br>
 <br>
-From there if you want to see the weather for one of those cities again, you can click the dropdown item and it will bring that cities information back up<br>
+From there if you want to see the weather for one of those cities again, you can click the dropdown item and it will bring up the city options with that same name to clarify.<br>
+<img width="1280" alt="seattle city options" src="./readmeimgs/seattle city options.png"><br>
+<br>
+Then once you click the city you want again, it will bring back the weather forcast and current conditions<br>
 <img width="1280" alt="seattle current conditions" src="./readmeimgs/seattle current.png"><br>
 <br>
 <img width="1280" alt="seattle future conditions" src="./readmeimgs/seattle 5 day forecast.png"><br>
@@ -67,7 +79,7 @@ It will take you right to their webpage where you can look into it more
 
 ## Credits
 
-Thank you to my tutor Andrew, who refreshed my memory after a christmas break & helped me when I was stuck.<br>
+Thank you to my tutor Andrew, who refreshed my memory after a christmas break & helped me when I was stuck. Thank you to the BCask individuals who helped me when I couldn't figure a few things out.<br>
 
 https://www.w3schools.com/jquery/sel_eq.asp#:~:text=The%20%3Aeq()%20selector%20selects,like%20in%20the%20example%20above
 
