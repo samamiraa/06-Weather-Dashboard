@@ -124,7 +124,19 @@ function fetchWeather() {
         console.log(lon);
         console.log(lat);
 
-        
+        let weatherRequestUrl = "api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
+
+        fetch(weatherRequestUrl)
+        // promise to return response
+        .then(function (response) {
+            return response.json();
+        })
+        // promise to run function with API data
+        .then(function (data) {
+            // console logs API data
+            console.log(data);
+        });
+
     });
     // // changes footer position
     // $("footer").css("position", "relative");
@@ -212,6 +224,7 @@ function fetchWeather() {
     //         $(weatherIcon).eq(i).attr("src", sunnyPath);
     //     }; 
     // };
-}
+};
+
 //  calls addPreviousCity function
 addPreviousCity();
