@@ -125,7 +125,7 @@ function fetchWeather() {
         console.log(lon);
         console.log(lat);
 
-        let weatherRequestUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
+        let weatherRequestUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=metric";
 
         fetch(weatherRequestUrl)
         // // promise to return response
@@ -153,77 +153,126 @@ function fetchWeather() {
         let windSpeed = $(".wind-speed");
 
         // variables for new img src paths
-        let snowPath = "./images/snowing.png";
-        let rainPath = "./images/rain.png";
-        let cloudyPath = "./images/cloudy.png";
-        let partlyCloudyPath = "./images/partly-cloudy.png";
-        let fogPath = "./images/foggy.png";
-        let windPath = "./images/wind-and-cloud.png"
-        let sunnyPath = "./images/sunny.png"
+        let snowDayPath = "https://openweathermap.org/img/wn/13d@2x.png";
+        let snowNightPath = "https://openweathermap.org/img/wn/13n@2x.png";
+        let showerRainDayPath = "https://openweathermap.org/img/wn/09d@2x.png";
+        let showerRainNightPath = "https://openweathermap.org/img/wn/09n@2x.png";
+        let rainDayPath = "https://openweathermap.org/img/wn/10d@2x.png";
+        let rainNightPath = "https://openweathermap.org/img/wn/10n@2x.png";
+        let brokenCloudsDayPath = "https://openweathermap.org/img/wn/04d@2x.png";
+        let brokenCloudsNightPath = "https://openweathermap.org/img/wn/04n@2x.png";
+        let fewCloudsDayPath = "https://openweathermap.org/img/wn/02d@2x.png";
+        let fewCloudsNightPath = "https://openweathermap.org/img/wn/02n@2x.png";
+        let scatteredCloudsDayPath = "https://openweathermap.org/img/wn/03d@2x.png";
+        let scatteredCloudsNightPath = "https://openweathermap.org/img/wn/03n@2x.png";
+        let mistDayPath = "https://openweathermap.org/img/wn/50d@2x.png";
+        let mistNightPath = "https://openweathermap.org/img/wn/50n@2x.png";
+        let thunderstormDayPath = "https://openweathermap.org/img/wn/11d@2x.png";
+        let thunderstormNightPath = "https://openweathermap.org/img/wn/11n@2x.png";
+        let clearDayPath = "https://openweathermap.org/img/wn/01d@2x.png"
+        let clearNightPath = "https://openweathermap.org/img/wn/01n@2x.png"
+        
 
-        });
+        // changes h1 to resolve address after search
+        $("#heading-container").text(data.city.name + ", " + data.city.country);
+
+        // updates current condition card with current weather conditions
+        $(dates).eq(0).text(data.list[0].dt_txt);
+        $(description).eq(0).text(data.list[0].weather[0].description);
+        $(temperature).eq(0).text("Temp: " + data.list[0].main.temp + " °C");
+        $(humidity).eq(0).text("Humidity: " + data.list[0].main.humidity + " %");
+        $(windSpeed).eq(0).text("Wind Speed: " + data.list[0].wind.speed + " Kph");
+
+        // condition statement to check icon from API then change img accordingly
+        if (data.list[0].weather[0].icon == "04d") {
+            $(weatherIcon).eq(0).attr("src", brokenCloudsDayPath);
+        } else if (data.list[0].weather[0].icon == "04n") {
+            $(weatherIcon).eq(0).attr("src", brokenCloudsNightPath);
+        } else if (data.list[0].weather[0].icon == "01d") {
+            $(weatherIcon).eq(0).attr("src", clearDayPath);
+        } else if (data.list[0].weather[0].icon == "01n") {
+            $(weatherIcon).eq(0).attr("src", clearNightPath);
+        } else if (data.list[0].weather[0].icon == "02d") {
+            $(weatherIcon).eq(0).attr("src", fewCloudsDayPath);
+        } else if (data.list[0].weather[0].icon == "02n") {
+            $(weatherIcon).eq(0).attr("src", fewCloudsNightPath);
+        } else if (data.list[0].weather[0].icon == "03d") {
+            $(weatherIcon).eq(0).attr("src", scatteredCloudsDayPath);
+        } else if (data.list[0].weather[0].icon == "03n") {
+            $(weatherIcon).eq(0).attr("src", scatteredCloudsNightPath);
+        } else if (data.list[0].weather[0].icon == "09d") {
+            $(weatherIcon).eq(0).attr("src", showerRainDayPath);
+        } else if (data.list[0].weather[0].icon == "09n") {
+            $(weatherIcon).eq(0).attr("src", showerRainNightPath);
+        } else if (data.list[0].weather[0].icon == "10d") {
+            $(weatherIcon).eq(0).attr("src", rainDayPath);
+        } else if (data.list[0].weather[0].icon == "10n") {
+            $(weatherIcon).eq(0).attr("src", rainNightPath);
+        } else if (data.list[0].weather[0].icon == "11d") {
+            $(weatherIcon).eq(0).attr("src", thunderstormDayPath);
+        } else if (data.list[0].weather[0].icon == "11n") {
+            $(weatherIcon).eq(0).attr("src", thunderstormNightPath);
+        } else if (data.list[0].weather[0].icon == "13d") {
+            $(weatherIcon).eq(0).attr("src", snowDayPath);
+        } else if (data.list[0].weather[0].icon == "13n") {
+            $(weatherIcon).eq(0).attr("src", snowNightPath);
+        } else if (data.list[0].weather[0].icon == "50d") {
+           $(weatherIcon).eq(0).attr("src", mistDayPath);
+        } else {
+            $(weatherIcon).eq(0).attr("src", mistNightPath);
+        };
+
+        // iteration to change next 5 cards with corresponding date/weather
+        for (i = 1; i < data.list.length; i++) {
+        // updates future condition card with current weather conditions
+            $(dates).eq(i).text(data.list[i].dt_txt);
+            $(description).eq(i).text(data.list[i].weather[0].description);
+            $(temperature).eq(i).text("Temp: " + data.list[i].main.temp + " °C");
+            $(humidity).eq(i).text("Humidity: " + data.list[i].main.humidity + " %");
+            $(windSpeed).eq(i).text("Wind Speed: " + data.list[i].wind.speed + " Kph");
+
+                    // condition statement to check icon from API then change img accordingly
+        if (data.list[i].weather[0].icon == "04d") {
+            $(weatherIcon).eq(i).attr("src", brokenCloudsDayPath);
+        } else if (data.list[i].weather[0].icon == "04n") {
+            $(weatherIcon).eq(i).attr("src", brokenCloudsNightPath);
+        } else if (data.list[i].weather[0].icon == "01d") {
+            $(weatherIcon).eq(i).attr("src", clearDayPath);
+        } else if (data.list[i].weather[0].icon == "01n") {
+            $(weatherIcon).eq(i).attr("src", clearNightPath);
+        } else if (data.list[i].weather[0].icon == "02d") {
+            $(weatherIcon).eq(i).attr("src", fewCloudsDayPath);
+        } else if (data.list[i].weather[0].icon == "02n") {
+            $(weatherIcon).eq(i).attr("src", fewCloudsNightPath);
+        } else if (data.list[i].weather[0].icon == "03d") {
+            $(weatherIcon).eq(i).attr("src", scatteredCloudsDayPath);
+        } else if (data.list[i].weather[0].icon == "03n") {
+            $(weatherIcon).eq(i).attr("src", scatteredCloudsNightPath);
+        } else if (data.list[i].weather[0].icon == "09d") {
+            $(weatherIcon).eq(i).attr("src", showerRainDayPath);
+        } else if (data.list[i].weather[0].icon == "09n") {
+            $(weatherIcon).eq(i).attr("src", showerRainNightPath);
+        } else if (data.list[i].weather[0].icon == "10d") {
+            $(weatherIcon).eq(i).attr("src", rainDayPath);
+        } else if (data.list[i].weather[0].icon == "10n") {
+            $(weatherIcon).eq(i).attr("src", rainNightPath);
+        } else if (data.list[i].weather[0].icon == "11d") {
+            $(weatherIcon).eq(i).attr("src", thunderstormDayPath);
+        } else if (data.list[i].weather[0].icon == "11n") {
+            $(weatherIcon).eq(i).attr("src", thunderstormNightPath);
+        } else if (data.list[i].weather[0].icon == "13d") {
+            $(weatherIcon).eq(i).attr("src", snowDayPath);
+        } else if (data.list[i].weather[0].icon == "13n") {
+            $(weatherIcon).eq(i).attr("src", snowNightPath);
+        } else if (data.list[i].weather[0].icon == "50d") {
+           $(weatherIcon).eq(i).attr("src", mistDayPath);
+        } else {
+            $(weatherIcon).eq(i).attr("src", mistNightPath);
+        };
+        };
 
     });
-
-    // // changes h1 to resolve address after search
-    // $("#heading-container").text(resolvedAddress);
-
-    // // updates current condition card with current weather conditions
-    // $(dates).eq(0).text(data.days[0].datetime + " Time: " + data.currentConditions.datetime);
-    // $(description).eq(0).text(data.currentConditions.conditions);
-    // $(temperature).eq(0).text("Temp: " + data.currentConditions.temp + " °C");
-    // $(humidity).eq(0).text("Humidity: " + data.currentConditions.humidity + " %");
-    // $(windSpeed).eq(0).text("Wind Speed: " + data.currentConditions.windspeed + " Kph");
-
-    // // condition statement to check icon from API then change img accordingly
-    // if (data.currentConditions.icon == "snow") {
-    //     $(weatherIcon).eq(0).attr("src", snowPath);
-    // } else if (data.currentConditions.icon == "rain") {
-    //     $(weatherIcon).eq(0).attr("src", rainPath);
-    // } else if (data.currentConditions.icon == "cloudy") {
-    //     $(weatherIcon).eq(0).attr("src", cloudyPath);
-    // } else if (data.currentConditions.icon == "partly-cloudy-day") {
-    //     $(weatherIcon).eq(0).attr("src", partlyCloudyPath);
-    // } else if (data.currentConditions.icon == "partly-cloudy-night") {
-    //     $(weatherIcon).eq(0).attr("src", partlyCloudyPath);
-    // } else if (data.currentConditions.icon == "fog") {
-    //     $(weatherIcon).eq(0).attr("src", fogPath);
-    // } else if (data.currentConditions.icon == "wind") {
-    //     $(weatherIcon).eq(0).attr("src", windPath);
-    // } else {
-    //     $(weatherIcon).eq(0).attr("src", sunnyPath);
-    // }; 
-
-    // // iteration to change next 5 cards with corresponding date/weather
-    // for (i = 1; i < data.days.length; i++) {
-    //     // updates future condition card with current weather conditions
-    //     $(dates).eq(i).text(data.days[i].datetime);
-    //     $(description).eq(i).text(data.days[i].description);
-    //     $(temperature).eq(i).text("Temp: " + data.days[i].temp + " °C");
-    //     $(humidity).eq(i).text("Humidity: " + data.days[i].humidity + " %");
-    //     $(windSpeed).eq(i).text("Wind Speed: " + data.days[i].windspeed + " Kph");
-    //     console.log(data.days[i].icon);
-
-    //     // condition statement to check icon from API then change img accordingly
-    //     if (data.days[i].icon == "snow") {
-    //         $(weatherIcon).eq(i).attr("src", snowPath);
-    //     } else if (data.days[i].icon == "rain") {
-    //         $(weatherIcon).eq(i).attr("src", rainPath);
-    //     } else if (data.days[i].icon == "cloudy") {
-    //         $(weatherIcon).eq(i).attr("src", cloudyPath);
-    //     } else if (data.days[i].icon == "partly-cloudy-day") {
-    //         $(weatherIcon).eq(i).attr("src", partlyCloudyPath);
-    //     } else if (data.days[i].icon == "partly-cloudy-night") {
-    //         $(weatherIcon).eq(i).attr("src", partlyCloudyPath);
-    //     } else if (data.days[i].icon == "fog") {
-    //         $(weatherIcon).eq(i).attr("src", fogPath);
-    //     } else if (data.days[i].icon == "wind") {
-    //         $(weatherIcon).eq(i).attr("src", windPath);
-    //     } else {
-    //         $(weatherIcon).eq(i).attr("src", sunnyPath);
-    //     }; 
-    // };
+});
 };
-
 //  calls addPreviousCity function
 addPreviousCity();
