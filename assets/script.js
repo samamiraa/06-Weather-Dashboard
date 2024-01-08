@@ -68,6 +68,10 @@ function addPreviousCity() {
 
 // weatherAPIFetch function
 function weatherAPIFetch() {
+
+    $(".card-container").addClass("hide");
+    $("h2").addClass("hide");
+
     // URL to use with API
     const requestUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + locationValue.val() + "&limit=5&appid=" + apiKey;
 
@@ -78,16 +82,22 @@ function weatherAPIFetch() {
 
 // previousWeatherFetch function, adds event
 function previousWeatherFetch(event) {
+
+    $(".card-container").addClass("hide");
+    $("h2").addClass("hide");
+
     // URL to use with API
     const requestUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + $(event.target).text() + "&limit=5&appid=" + apiKey;
 
     console.log(previousWeatherFetch);
      // calls fetchWeather function, passes through requestUrl
     fetchLonLat(requestUrl);
+
 };
 
 // fetchWeather function, passes through request URL
 function fetchLonLat(requestUrl) {
+
     // fetch requestUrl, passes through request URL
     fetch(requestUrl)
         // promise to return response
@@ -99,7 +109,7 @@ function fetchLonLat(requestUrl) {
             // console logs API data
             console.log(data);
             console.log(data[0].lat);
-            
+
             $(headingContainer.text("Did you mean?"));
             $(cardContainer).addClass("hide");
 
@@ -138,7 +148,7 @@ function fetchWeather() {
             console.log(data);
 
         // removes hide class
-        $("button").addClass("hide");
+        $(".btn-city").addClass("hide");
         $("h2").removeClass("hide");
         $("div").removeClass("hide");
         // changes footer position
