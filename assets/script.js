@@ -113,12 +113,11 @@ function fetchLonLat(requestUrl) {
 
             $(headingContainer.text("Did you mean?"));
             $(cardContainer).addClass("hide");
-            
 
             for (i =0; i < data.length; i++) {
                 let cityBtn = `
                     <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-secondary btn-outline-dark p-4 m-4 btn-city" type="button" data-lat="${data[i].lat}" data-lon="${data[i].lon}">${data[i].name + ", " + data[i].state}</button>
+                    <button class="btn btn-secondary btn-outline-dark p-4 m-4 btn-city" type="button" data-name="${data[i].name}" data-state="${data[i].state}" data-lat="${data[i].lat}" data-lon="${data[i].lon}">${data[i].name + ", " + data[i].state}</button>
                     </div>
                 `;
 
@@ -134,8 +133,12 @@ function fetchWeather() {
     $(".btn-city").on("click", function() {
         let lat = $(this).data("lat");
         let lon = $(this).data("lon");
+        let name = $(this).data("name");
+        let state = $(this).data("state");
         console.log(lon);
         console.log(lat);
+        console.log(name);
+        console.log(state);
 
         let weatherRequestUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=metric";
 
@@ -186,7 +189,7 @@ function fetchWeather() {
         
 
         // changes h1 to resolve address after search
-        $("#heading-container").text(data.city.name + ", " + data.city.country);
+        $("#heading-container").text(name + ", " + state + ", " + data.city.country);
 
         // updates current condition card with current weather conditions
         $(dates).eq(0).text(data.list[0].dt_txt);
