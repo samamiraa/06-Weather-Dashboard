@@ -105,19 +105,12 @@ function fetchLonLat(requestUrl) {
             for (i =0; i < data.length; i++) {
                 let cityBtn = `
                     <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-secondary btn-outline-dark p-4 m-4 btn-city" type="button">${data[i].name + ", " + data[i].state}</button>
+                    <button class="btn btn-secondary btn-outline-dark p-4 m-4 btn-city" type="button" data-lat="${data[i].lat}" data-lon="${data[i].lon}">${data[i].name + ", " + data[i].state}</button>
                     </div>
                 `;
 
                 $(headingContainer).after(cityBtn);
             };
-
-            $(".btn-city").on("click", function() {
-                const lat = $(this).data.lat;
-                const lon = $(this).data.lon;
-        
-                console.log(lon);
-            });
 
             fetchWeather();
         });
@@ -125,6 +118,14 @@ function fetchLonLat(requestUrl) {
 
 function fetchWeather() {
 
+    $(".btn-city").on("click", function() {
+        let lat = $(this).data("lat");
+        let lon = $(this).data("lon");
+        console.log(lon);
+        console.log(lat);
+
+        
+    });
     // // changes footer position
     // $("footer").css("position", "relative");
 
